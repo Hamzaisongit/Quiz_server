@@ -8,7 +8,9 @@ const server = createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: "https://quiz-client-10.onrender.com/"
+        origin: ["https://quiz-client-10.onrender.com/","http://localhost:5173/"],
+        methods: ["GET","POST"],
+        credentials: true
     }
 });
 
