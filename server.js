@@ -8,7 +8,7 @@ const server = createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173/"]
+        origin: ["http://localhost:5173","https://quiz-client-10.onrender.com"]
     }
 });
 
@@ -22,7 +22,7 @@ io.on("connection", (socket)=>{
 
    socket.emit("welcome","hello")
    socket.on("message",(data)=>{
-    console.log(`${socket.id} sent message : ${data}`)
+    console.log(`${data.name} sent message : ${data.answer}`)
    })
 })
 
