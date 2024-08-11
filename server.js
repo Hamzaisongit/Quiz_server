@@ -63,6 +63,7 @@ io.on("connection", (socket)=>{
 
 server.listen(process.env.PORT || 3000, ()=>{
     if(!fs.existsSync(rawDataPath)){
+       console.log("no rawData found..creating One")
        fs.writeFileSync(rawDataPath,"[]")
     }
     console.log("server is runnin on" + process.env.PORT)
