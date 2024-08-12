@@ -20,10 +20,12 @@ function processData(data) {
 
     sorted.forEach(item => {
         const row = document.createElement('tr');
-        Object.values(item).forEach(value => {
-            const cell = document.createElement('td');
-            cell.textContent = value;
-            row.appendChild(cell);
+        Object.keys(item).forEach(key => {
+            if(key=="name" || key=="score"){
+                const cell = document.createElement('td');
+                cell.textContent = item[key];
+                row.appendChild(cell);
+            }  
         });
         tableBody.appendChild(row);
     });
