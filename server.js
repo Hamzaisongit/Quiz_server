@@ -38,6 +38,8 @@ io.on("connection", (socket) => {
 
     socket.on("message", (data) => {
         console.log(`${socket.id} sent message: ${JSON.stringify(data)}`);
+        
+        socket.emit("recieved", "response recieved!")
 
         // Acquire the lock
         lockfile.lock(lockFilePath, { retries: 10, retryWait: 100 }, (err) => {
